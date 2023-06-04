@@ -1,3 +1,5 @@
+// HomePage
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -32,7 +34,7 @@ const HomePage = () => {
             <Header />
             <div className="card-container">
                 {posts.map((post) => (
-                    <div className="card" key={post.id}>
+                    <Link to={`/item/${post.id}`} key={post.id} className="card" textDecoration="none">
                         <img src={`https://picsum.photos/200?random=${post.id}`} alt="Post" />
                         <div className="card-body">
                             <p>User ID: {post.userId}</p>
@@ -52,7 +54,7 @@ const HomePage = () => {
                                 </p>
                             )}
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
